@@ -1,0 +1,213 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Comic Neue', cursive;
+} */
+
+
+canvas {
+    touch-action: none;
+}
+
+.animated-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(120deg, #0b0e1a, #12183a, #0b0e1a);
+    background-size: 300% 300%;
+    animation: bgShift 18s ease infinite;
+}
+
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.floating-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #00f2ff;
+    animation: floatUp 0.9s ease-out;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -40px);
+    }
+}
+
+.shake {
+    animation: shake 0.25s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 12px #00f2ff;
+    }
+
+    50% {
+        text-shadow: 0 0 28px #00f2ff;
+    }
+}
+
+.gameover-bg {
+    height: 100vh;
+    background: radial-gradient(circle at top, #1a1f3c, #05060f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameover-card {
+    background: rgba(10, 14, 30, 0.9);
+    border-radius: 20px;
+    padding: 40px 60px;
+    color: white;
+    text-align: center;
+    animation: popIn 0.6s ease-out;
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.25);
+}
+
+.gameover-title {
+    font-size: 48px;
+    font-weight: 900;
+    animation: glowPulse 2s infinite;
+}
+
+.gameover-score {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.gameover-combo {
+    color: #facc15;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.gameover-btn {
+    margin-top: 30px;
+    padding: 14px 40px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00f2ff, #3a7cff);
+    color: #000;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.gameover-btn:hover {
+    transform: scale(1.07);
+}
+
+.new-high-score {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #facc15;
+    text-shadow: 0 0 18px rgba(250, 204, 21, 0.7);
+    animation: highScorePop 0.8s ease-out;
+}
+
+@keyframes highScorePop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.flash {
+    animation: flashScreen 0.18s ease;
+}
+
+@keyframes flashScreen {
+    0% {
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+.shake-hard {
+    animation: shakeHard 0.35s ease;
+}
+
+@keyframes shakeHard {
+    20% {
+        transform: translate(-8px, 6px);
+    }
+
+    40% {
+        transform: translate(8px, -6px);
+    }
+
+    60% {
+        transform: translate(-6px, -4px);
+    }
+
+    80% {
+        transform: translate(6px, 4px);
+    }
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
